@@ -1,57 +1,176 @@
 // Google Api with Markers
 
-var map;
-var marker;
+// var map;
+// var marker;
 
 
-function init(){
+// function init(){
 
 
-	var mapOptions = {
-		// Set where the map starts
-		center:{
+// 	var mapOptions = {
+// 		// Set where the map starts
+// 		center:{
 			
 
-		lat: -41.2897721,
-		lng: 174.7731366
-		},
+// 		lat: -41.2897721,
+// 		lng: 174.7731366
+// 		},
 
-		zoom: 16,
-		// Take s off UI for maps
-		disableDefaultUI: false,
+// 		zoom: 16,
+// 		// Take s off UI for maps
+// 		disableDefaultUI: false,
 
-		// Turn off click to zoom
-		disableDoubleClickZoom: false,
+// 		// Turn off click to zoom
+// 		disableDoubleClickZoom: false,
 
-		// Turns off scroll to zoom
-		scrollwheel: false,
+// 		// Turns off scroll to zoom
+// 		scrollwheel: false,
 
-		// Makes map draggable
-		draggable: true,
+// 		// Makes map draggable
+// 		draggable: true,
 
-		fullscreenControl: true,
+// 		fullscreenControl: true,
 
-		backgroundColor: "#eee",
-		keyboardShortcuts: true,
+// 		backgroundColor: "#eee",
+// 		keyboardShortcuts: true,
 
-		mapTypeControlOptions:{
-			position: google.maps.ControlPosition.TOP_CENTER
-		},
+// 		mapTypeControlOptions:{
+// 			position: google.maps.ControlPosition.TOP_CENTER
+// 		},
 
 		
 
-	}
+// 	}
 
 
-	map = new google.maps.Map(document.getElementById("map"), mapOptions);
+// 	map = new google.maps.Map(document.getElementById("map"), mapOptions);
 	
 
-}
+// }
 
-google.maps.event.addDomListener(window, "load", init);
+// google.maps.event.addDomListener(window, "load", init);
 
 
 
+function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          mapTypeControl: false,
+          center: {lat: -41.2897721,
+ 					lng: 174.7731366},
+          zoom: 6
+        });
+
+        new AutocompleteDirectionsHandler(map);
+      }
+
+       /**
+        * @constructor
+       */
+      function AutocompleteDirectionsHandler(map) {
+        this.map = map;
+        this.originPlaceId = null;
+        this.destinationPlaceId = null;
+        this.travelMode = 'DRIVING';
+        var originInput = document.getElementById('origin-input');
+        var destinationInput = document.getElementById('destination-input');
+        var modeSelector = document.getElementById('mode-selector');
+        this.directionsService = new google.maps.DirectionsService;
+        this.directionsDisplay = new google.maps.DirectionsRenderer;
+        this.directionsDisplay.setMap(map);
+
+        var originAutocomplete = new google.maps.places.Autocomplete(
+            originInput, {placeIdOnly: true});
+        var destinationAutocomplete = new google.maps.places.Autocomplete(
+            destinationInput, {placeIdOnly: true});
+
+        
+        // this.setupClickListener('changemode-driving', 'DRIVING');
+
+        this.setupPlaceChangedListener(originAutocomplete, 'ORIG');
+        this.setupPlaceChangedListener(destinationAutocomplete, 'DEST');
+
+      
+      } 
+
+    
+
+      AutocompleteDirectionsHandler.prototype.setupPlaceChangedListener = function(autocomplete, mode) {
+        var me = this;
+        autocomplete.bindTo('bounds', this.map);
+        autocomplete.addListener('place_changed', function() {
+          var place = autocomplete.getPlace();
+          if (!place.place_id) {
+            window.alert("Please select an option from the dropdown list.");
+            return;
+          }
+          if (mode === 'ORIG') {
+            me.originPlaceId = place.place_id;
+          } else {
+            me.destinationPlaceId = place.place_id;
+          }
+          me.route();
+        });
+
+      };
+
+      AutocompleteDirectionsHandler.prototype.route = function() {
+        if (!this.originPlaceId || !this.destinationPlaceId) {
+          return;
+        }
+        var me = this;
+
+        this.directionsService.route({
+          origin: {'placeId': this.originPlaceId},
+          destination: {'placeId': this.destinationPlaceId},
+          travelMode: this.travelMode
+        }, function(response, status) {
+          if (status === 'OK') {
+            me.directionsDisplay.setDirections(response);
+            DistanceDisplay(response.routes[0].legs[0].distance.text, response.routes[0].legs[0].duration.text, response.routes[0].legs[0].end_address);
+          } else {
+            window.alert('Directions request failed due to ' + status);
+          }
+        });
+          
+      };
+
+google.maps.event.addDomListener(window, "load", initMap);
+
+
+
+// };
+//   function(response, status) {
+//        if (status == 'OK') {
+//            directionsDisplay.setDirections(response);
+//            console.log(response);
+//            // console.log(response.routes[0].legs[0].distance.text);
+//            DistanceDisplay(response.routes[0].legs[0].distance.text, response.routes[0].legs[0].duration.text, response.routes[0].legs[0].end_address);
+           
+//            } else {
+//            window.alert('Directions request failed due to ' + status);
+//            }
+//        });
+
+function DistanceDisplay(distance,duration,end_address){
+   var Details = $("#Details").val();
+   $("#routeDistance").empty().prepend("<div><h4>"+distance+"</h4></div>");
+   $("#routeDuration").empty().prepend("<div><h4> about "+duration+"</h4></div>");
+   $("#routeAddress").empty().prepend("<div><h4>"+end_address+"</h4></div>");
+
+};
+
+
+
+ 
+
+
+
+
+
+
+
+
+//Jquery
 
 $(document).ready(function(){
 
@@ -78,11 +197,7 @@ $(document).ready(function(){
 	});
 
 
-
-
-
-
-	//Code stolen from css-tricks for smooth scrolling:
+	//smooth scrolling:
 	$(function() {
 	  $("a[href*=#]:not([href=#])").click(function() {
 	    if (location.pathname.replace(/^\//,"") == this.pathname.replace(/^\//,"") && location.hostname == this.hostname) {
