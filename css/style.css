@@ -114,19 +114,22 @@ body {
   float: left;
   width: 25%;
   height: 100%;
-  border: solid black 1px;
   color: white;
   text-align: center; }
   .transport_cost h4 {
     padding-top: 40px; }
 
 .plus {
-  position: inherit;
+  position: relative;
   display: inline-block;
   float: left;
   width: 10%;
-  height: 100%;
-  border: solid black 1px; }
+  height: 100%; }
+  .plus img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%); }
 
 .petrol_cost {
   position: inherit;
@@ -134,19 +137,22 @@ body {
   float: left;
   width: 25%;
   height: 100%;
-  border: solid black 1px;
   color: white;
   text-align: center; }
   .petrol_cost h4 {
     padding-top: 40px; }
 
 .equals {
-  position: inherit;
+  position: relative;
   display: inline-block;
   float: left;
   width: 10%;
-  height: 100%;
-  border: solid black 1px; }
+  height: 100%; }
+  .equals img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%); }
 
 .total_cost {
   position: inherit;
@@ -154,7 +160,20 @@ body {
   float: left;
   width: 30%;
   height: 100%;
-  border: solid black 1px; }
+  color: white;
+  text-align: center; }
+  .total_cost h4 {
+    font-size: 2em;
+    padding-top: 22px; }
+
+.circle {
+  margin-top: 40px;
+  height: 80px;
+  width: 80px;
+  border: solid white 2px;
+  border-radius: 50px;
+  margin-right: auto;
+  margin-left: auto; }
 
 /*Section 3*/
 #how_it_works {

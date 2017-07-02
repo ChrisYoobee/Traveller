@@ -170,7 +170,6 @@ body {
   float: left;
   width: 25%;
   height: 100%;
-  border: solid black 1px;
   color: white;
   text-align: center;
     h4{
@@ -181,12 +180,17 @@ body {
 }
 
 .plus{
-  position: inherit;
+  position: relative;
   display: inline-block;
   float: left;
   width: 10%;
   height: 100%;
-  border: solid black 1px;
+    img{
+         position: absolute;
+   left: 50%;
+   top: 50%;
+   transform: translate(-50%, -50%);
+    }
 }
 
 .petrol_cost{
@@ -195,7 +199,6 @@ body {
   float: left;
   width: 25%;
   height: 100%;
-  border: solid black 1px;
   color: white;
   text-align: center;
     h4{
@@ -206,12 +209,18 @@ body {
 }
 
 .equals{
-  position: inherit;
+  position: relative;
   display: inline-block;
   float: left;
   width: 10%;
   height: 100%;
-  border: solid black 1px;
+
+  img{
+         position: absolute;
+   left: 50%;
+   top: 50%;
+   transform: translate(-50%, -50%);
+    }
 }
 
 .total_cost{
@@ -220,7 +229,24 @@ body {
   float: left;
   width: 30%;
   height: 100%;
-  border: solid black 1px;
+  color: white;
+  text-align: center;
+    h4{
+      
+      font-size: 2em;
+      padding-top: 22px;
+     
+    }
+}
+
+.circle{
+  margin-top: 40px;
+  height: 80px;
+  width: 80px;
+  border: solid white 2px;
+  border-radius: 50px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 
