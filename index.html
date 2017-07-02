@@ -14,7 +14,6 @@
 		<!-- Bootstrap -->
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<link href="css/style.css" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Exo" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Ubunto" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Istok+Web" rel="stylesheet">
@@ -38,15 +37,99 @@
 				
 
 					<div class="inputs">
-						<input id="pac-input" class="controls" type="text" placeholder="Search Box">
-						<input id="pac-input" class="controls" type="text" placeholder="Search Box">
+								<form>
+								  <div class="form-group">
+								    <label for="map_start">Start Destination</label>
+								    <input type="text-input" class="form-control" id="start">
+								  </div>
+								  <div class="form-group">
+								    <label for="map_destination">End Destination</label>
+								    <input type="text-input" class="form-control" id="end">
+								  </div>
+								  
+								</form>
+
+
+						<div class="car_numbers">
+
+							<div class="row">
+							  <div class="col-lg-12">
+							    <div class="input-group">
+							      <input type="text" class="form-control" aria-label="...">
+							      <div class="input-group-btn">
+							        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Number of People<span class="caret"></span></button>
+							        <ul class="dropdown-menu dropdown-menu-right">
+							          <li><a href="#">1</a></li>
+							          <li><a href="#">2</a></li>
+							          <li><a href="#">3</a></li>
+							          <li><a href="#">4</a></li>
+							          <li><a href="#">5</a></li>
+							          <li><a href="#">6</a></li>
+							        </ul>
+							      </div><!-- /btn-group -->
+							    </div><!-- /input-group -->
+							  </div><!-- /.col-lg-12 -->
+
+							   <div class="col-lg-12">
+							    <div class="input-group">
+							      <input type="text" class="form-control" aria-label="...">
+							      <div class="input-group-btn">
+							        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">How Many Days<span class="caret"></span></button>
+							        <ul class="dropdown-menu dropdown-menu-right">
+							          <li><a href="#">1</a></li>
+							          <li><a href="#">2</a></li>
+							          <li><a href="#">3</a></li>
+							          <li><a href="#">4</a></li>
+							          <li><a href="#">5</a></li>
+							          <li><a href="#">6</a></li>
+							        </ul>
+							      </div><!-- /btn-group -->
+							    </div><!-- /input-group -->
+							  </div><!-- /.col-lg-12 -->
+
+							   <div class="col-lg-12">
+							    <div class="input-group">
+							      <input type="text" class="form-control" aria-label="...">
+							      <div class="input-group-btn">
+							        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Type of Car<span class="caret"></span></button>
+							        <ul class="dropdown-menu dropdown-menu-right">
+							          <li><a href="#">Motorbike 1 Person</a></li>
+							          <li><a href="#">Small Car 1-2 People</a></li>
+							          <li><a href="#">Large Car 1-5 people</a></li>
+							          <li><a href="#">Motor Home 2-6 people</a></li>
+							        </ul>
+							      </div><!-- /btn-group -->
+							    </div><!-- /input-group -->
+							  </div><!-- /.col-lg-12 -->
+							</div><!-- /.row -->
+
+						</div>
+						
 					</div>
+
+				<div class="calculate">
+					<a href="#map"> <h3>Calculate</h3> </a>
+				</div>
 				
 			</div>
 			
 			<div id="map_function">
 				<div id="map"></div>
-				<div class="price_section"> </div>
+				<div class="price_section">
+					<div class="transport_cost">
+						<h3>Transport</h3>
+						<h4>Small Car</h4>
+						<h4>$52</h4>
+					</div>
+					<div class="plus"></div>
+					<div class="petrol_cost">
+						<h3>Distance</h3>
+						<h4>123.5 km</h4>
+						<h4>$36</h4>
+					</div>
+					<div class="equals"></div>
+					<div class="total_cost"></div>
+				</div>
 			</div>
 
 			<div id="how_it_works">
@@ -65,7 +148,7 @@
 				</div>
 
 				<a href="#splash">  
-					<div class="to_top">
+					<div a href="#splash" class="to_top clicked">
 						<h3>Back to Top</h3>
 					</div>
 				</a>

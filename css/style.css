@@ -21,14 +21,76 @@ body {
   float: right;
   margin-right: 40px;
   margin-top: -30px;
-  z-index: 20; }
+  z-index: 20;
+  border-radius: 50%;
+  -webkit-transition: -webkit-transform .8s ease-in-out;
+  transition: transform .8s ease-in-out; }
+  .info:hover {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg); }
+
+.calculate {
+  height: 70px;
+  width: 250px;
+  margin-top: 100px;
+  border: 4px solid black;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+  color: black;
+  -webkit-transition: 1s;
+  color: black; }
+  .calculate:hover {
+    background-color: rgba(0, 0, 0, 0.2); }
+  .calculate h3 {
+    font-family: 'Ubuntu', sans-serif;
+    color: black; }
+  .calculate a {
+    text-decoration: none; }
 
 .inputs {
   width: 40vw;
-  height: 60vh;
-  border: solid black 1px;
+  height: 50vh;
+  /*border: solid black 1px;*/
   margin-left: auto;
   margin-right: auto;
+  margin-top: 100px; }
+
+.start_finish {
+  float: left;
+  display: inline-block;
+  margin-right: auto;
+  margin-left: auto;
+  height: 40%;
+  width: 100%;
+  border: solid black 1px; }
+
+.start {
+  float: left;
+  display: inline-block;
+  height: 40px;
+  width: 100%;
+  border: solid black 1px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 40px; }
+  .start input {
+    float: left;
+    display: inline-block;
+    margin-left: 250px;
+    width: 50%; }
+  .start h4 {
+    float: left;
+    display: inline-block; }
+
+.finish {
+  float: left;
+  display: inline-block;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 40px; }
+
+.input-group {
   margin-top: 40px; }
 
 /*Section 2*/
@@ -43,7 +105,56 @@ body {
 .price_section {
   width: 100vw;
   height: 25vh;
-  background-color: #16ADB5; }
+  background-color: #16ADB5;
+  font-family: 'Ubuntu', sans-serif; }
+
+.transport_cost {
+  position: inherit;
+  display: inline-block;
+  float: left;
+  width: 25%;
+  height: 100%;
+  border: solid black 1px;
+  color: white;
+  text-align: center; }
+  .transport_cost h4 {
+    padding-top: 40px; }
+
+.plus {
+  position: inherit;
+  display: inline-block;
+  float: left;
+  width: 10%;
+  height: 100%;
+  border: solid black 1px; }
+
+.petrol_cost {
+  position: inherit;
+  display: inline-block;
+  float: left;
+  width: 25%;
+  height: 100%;
+  border: solid black 1px;
+  color: white;
+  text-align: center; }
+  .petrol_cost h4 {
+    padding-top: 40px; }
+
+.equals {
+  position: inherit;
+  display: inline-block;
+  float: left;
+  width: 10%;
+  height: 100%;
+  border: solid black 1px; }
+
+.total_cost {
+  position: inherit;
+  display: inline-block;
+  float: left;
+  width: 30%;
+  height: 100%;
+  border: solid black 1px; }
 
 /*Section 3*/
 #how_it_works {
@@ -74,14 +185,21 @@ h2 {
 
 .to_top {
   height: 70px;
-  width: 150px;
+  width: 250px;
   margin-top: 100px;
-  border: 5px solid black;
+  border: 4px solid black;
   margin-right: auto;
   margin-left: auto;
   text-align: center;
-  color: black; }
+  color: black;
+  -webkit-transition: 1s; }
   .to_top:hover {
     background-color: rgba(0, 0, 0, 0.2); }
+  .to_top h3 {
+    font-family: 'Ubuntu', sans-serif; }
+
+.clicked {
+  margin-top: 105px;
+  -webkit-transition: 1s; }
 
 /*# sourceMappingURL=style.css.map */
