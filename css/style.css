@@ -230,7 +230,7 @@ h2 {
   -webkit-transition: 1s; }
 
 .controls {
-  margin-top: 10px;
+  /*margin-top: 10px;*/
   border: 1px solid transparent;
   border-radius: 2px 0 0 2px;
   box-sizing: border-box;
@@ -245,10 +245,10 @@ h2 {
   font-family: Roboto;
   font-size: 15px;
   font-weight: 300;
-  margin-left: 12px;
+  /* margin-left: 12px;*/
   padding: 0 11px 0 13px;
-  text-overflow: ellipsis;
-  width: 200px; }
+  /*text-overflow: ellipsis;*/
+  width: 100%; }
 
 #origin-input:focus,
 #destination-input:focus {

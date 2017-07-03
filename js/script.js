@@ -217,8 +217,30 @@ $(document).ready(function(){
 
 	$(".to_top").on("mousedown", function() {
     $(this).toggleClass("clicked");
-});
+  });
 
+  $("#lastname")
+    .focus(function(){
+      if($(this).val().length === 0){
+        $(this).parent().find('span.input-errors').empty();
+        $(this).parent().find('span.input-errors').append("<ul class='error'></ul>");
+        $(this).parent().find('span.input-errors ul').append(
+            "<li class='required'>This is required</li>"
+            )
+        }
+    }).blur(function(){
+
+    }).keyup(function(){
+      if($(this).val().length !== 0 ){
+        $(this).parent().find('span.input-errors .required').remove();
+      } else if( ($(this).val().length === 0) && ( $("li.required").length === 0) ) {
+        $(this).parent().find('span.input-errors ul').append("<li class='required'>This is required</li>");
+      }
+      if($(this).parent().find('span.input-errors ul li').length === 0){
+        ValidLastName = true;
+      }
+    });
+    
 });
 
 
