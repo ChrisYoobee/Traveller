@@ -1,63 +1,21 @@
-// Google Api with Markers
 
-// var map;
-// var marker;
+var numbers = /([1-6])/;
+var validNumberOfPeople = false;
 
+var motorbikePrice = 109;
+var smallCarPrice = 129;
+var largeCarPrice = 144;
+var MotorHome = 200;
 
-// function init(){
-
-
-// 	var mapOptions = {
-// 		// Set where the map starts
-// 		center:{
-			
-
-// 		lat: -41.2897721,
-// 		lng: 174.7731366
-// 		},
-
-// 		zoom: 16,
-// 		// Take s off UI for maps
-// 		disableDefaultUI: false,
-
-// 		// Turn off click to zoom
-// 		disableDoubleClickZoom: false,
-
-// 		// Turns off scroll to zoom
-// 		scrollwheel: false,
-
-// 		// Makes map draggable
-// 		draggable: true,
-
-// 		fullscreenControl: true,
-
-// 		backgroundColor: "#eee",
-// 		keyboardShortcuts: true,
-
-// 		mapTypeControlOptions:{
-// 			position: google.maps.ControlPosition.TOP_CENTER
-// 		},
-
-		
-
-// 	}
-
-
-// 	map = new google.maps.Map(document.getElementById("map"), mapOptions);
-	
-
-// }
-
-// google.maps.event.addDomListener(window, "load", init);
-
-
+var petrolPrice = 1.859;
 
 function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
           mapTypeControl: false,
           center: {lat: -41.2897721,
  					lng: 174.7731366},
-          zoom: 6
+          zoom: 6,
+          scrollwheel: false,
         });
 
         new AutocompleteDirectionsHandler(map);
@@ -84,7 +42,6 @@ function initMap() {
             destinationInput, {placeIdOnly: true});
 
         
-        // this.setupClickListener('changemode-driving', 'DRIVING');
 
         this.setupPlaceChangedListener(originAutocomplete, 'ORIG');
         this.setupPlaceChangedListener(destinationAutocomplete, 'DEST');
@@ -134,22 +91,10 @@ function initMap() {
           
       };
 
-google.maps.event.addDomListener(window, "load", initMap);
 
 
 
-// };
-//   function(response, status) {
-//        if (status == 'OK') {
-//            directionsDisplay.setDirections(response);
-//            console.log(response);
-//            // console.log(response.routes[0].legs[0].distance.text);
-//            DistanceDisplay(response.routes[0].legs[0].distance.text, response.routes[0].legs[0].duration.text, response.routes[0].legs[0].end_address);
-           
-//            } else {
-//            window.alert('Directions request failed due to ' + status);
-//            }
-//        });
+
 
 function DistanceDisplay(distance,duration,end_address){
    var Details = $("#Details").val();
@@ -158,13 +103,6 @@ function DistanceDisplay(distance,duration,end_address){
    $("#routeAddress").empty().prepend("<div><h4>"+end_address+"</h4></div>");
 
 };
-
-
-
- 
-
-
-
 
 
 
@@ -213,36 +151,64 @@ $(document).ready(function(){
 	  });
 	});
 
+numbers = /([1-6])/;
 
-
-	$(".to_top").on("mousedown", function() {
-    $(this).toggleClass("clicked");
-  });
-
-  $("#lastname")
-    .focus(function(){
+	//Blur is when you have left an element
+    $("#numberOfPeople").keyup(function(test){
+      var numberOfPeopleErrors = $(this).parent().find('span.input-errors');
+      numberOfPeopleErrors.empty();
+      //This element is required
       if($(this).val().length === 0){
-        $(this).parent().find('span.input-errors').empty();
-        $(this).parent().find('span.input-errors').append("<ul class='error'></ul>");
-        $(this).parent().find('span.input-errors ul').append(
-            "<li class='required'>This is required</li>"
-            )
-        }
-    }).blur(function(){
-
-    }).keyup(function(){
-      if($(this).val().length !== 0 ){
-        $(this).parent().find('span.input-errors .required').remove();
-      } else if( ($(this).val().length === 0) && ( $("li.required").length === 0) ) {
-        $(this).parent().find('span.input-errors ul').append("<li class='required'>This is required</li>");
+        numberOfPeopleErrors.text("This field is required").removeClass("success").addClass("error");
+        return;
       }
-      if($(this).parent().find('span.input-errors ul li').length === 0){
-        ValidLastName = true;
+     maxNumber = $(this).parent().find('span.input-errors');
+      if($(this).val() < 7){
+        $(this).parent().find('span.input-errors .numbers').remove();
+      } else if( (!$(this).val().match(numbers)) && ($("li.numbers").length === 0) ){
+        $(this).parent().find('span.input-errors ul').append("<li class='numbers'>Must be between 1 - 6</li>")
       }
+     
+      numberOfPeopleErrors.text("No errors").removeClass("error").addClass("success");
+      validNumberOfPeople = true;
     });
-    
+
+
+    $("#motorbike").click(function(){
+        // $("#motorbike").remove();
+        $("#dropdown").text("Motorbike");
+    });
+
+    $("#small-car").click(function(){
+        // $("#small-car").remove();
+        $("#dropdown").text("Small Car");
+    });
+
+    $("#large-car").click(function(){
+        // $("#large-car").remove();
+        $("#dropdown").text("Large Car");
+    });
+
+    $("#motor-home").click(function(){
+        // $("#motor-home").remove();
+        $("#dropdown").text("Motor Home");
+    });
+
+
+$("#calculate").click(function(){
+
+   
+
+});
+
+
+  
+  // parsefloat when getting the number from distance
+
 });
 
 
 
+
+google.maps.event.addDomListener(window, "load", initMap);
 

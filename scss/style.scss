@@ -22,6 +22,7 @@ body {
   font-family: 'Istok Web', sans-serif;
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
 
@@ -44,6 +45,8 @@ body {
       margin-left: auto;
       margin-right: auto;
       padding-top: 40px;
+      width: 60%;
+      max-width: 453px;
     }
 
 
@@ -147,8 +150,28 @@ body {
   margin-top: 40px;
 }
 
+#destination-input{
+  margin-bottom: 20px;
+}
+
+#origin-input{
+  margin-bottom: 20px;
+}
 
 
+.input-group-btn:last-child>.btn, .input-group-btn:last-child>.btn-group{
+
+  width: 100%;
+}
+
+.open>.dropdown-menu{
+  text-align: center;
+  width: 100%;
+}
+
+.error{
+  color: #c64949;
+}
 
 
 /*Section 2*/
@@ -264,6 +287,7 @@ body {
 
   width: 100vw;
   height: 100vh;
+  min-height: 750px;
   background-color: #57BA84;
     a{
     text-decoration: none;
@@ -362,4 +386,12 @@ h2{
         font-size: 13px;
         font-weight: 300;
       }
+
+
+
+      .quantity {
+    position: relative;
+    height: 40px;
+    width: 40px;
+}
 
