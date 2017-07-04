@@ -5,11 +5,21 @@ var validNumberOfPeople = false;
 var motorbikePrice = 109;
 var smallCarPrice = 129;
 var largeCarPrice = 144;
-var MotorHome = 200;
+var motorHomePrice = 200;
 
 var petrolPrice = 1.859;
 
+var transportType = 0;
+
 var numberOfPeople = $("#numberOfPeople");
+
+var distance2;
+
+var pertrolMath;
+var totalCost;
+
+
+
 
 function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
@@ -103,6 +113,8 @@ function DistanceDisplay(distance,duration,end_address){
    $("#routeDistance").empty().prepend("<div><h4>"+distance+"</h4></div>");
    $("#routeDuration").empty().prepend("<div><h4> about "+duration+"</h4></div>");
    $("#routeAddress").empty().prepend("<div><h4>"+end_address+"</h4></div>");
+   distance2 = parseFloat(distance);
+   console.log(distance2);
 
 };
 
@@ -196,17 +208,69 @@ numbers = /([1-6])/;
         $("#dropdown").text("Motor Home");
     });
 
+$("#motorbike").click(function(){
+
+  transportType = motorbikePrice;
+ 
+
+});
+
+$("#small-car").click(function(){
+
+  transportType = smallCarPrice;
+
+});
+
+$("#large-car").click(function(){
+
+  transportType = largeCarPrice;
+  
+
+});
+
+$("#motor-home").click(function(){
+
+  transportType = motorHomePrice;
+
+});
+
+
 
 $("#calculate").click(function(){
 
   if (true) {
 
+    
+
   	console.log(motorbikePrice + petrolPrice);
+    // console.log(distance);
   }
 
-parsefloat(console.log($('#numberOfPeople').val()));
-  	 
+ 
+
+var people = parseInt($("#numberOfPeople").val());
+var howManyDays = parseInt($("#numberOfPeople").val());
+console.log(howManyDays * transportType);
+
+var totalHireCost = (howManyDays * transportType);
+  	
 	console.log("working");
+  console.log(distance2);
+  console.log(totalHireCost);
+
+
+  $("#hire-cost").empty().prepend("<div><h4>"+"$"+totalHireCost+"</h4></div>");
+
+  pertrolMath = (distance2  * 0.085 * petrolPrice);
+  console.log(pertrolMath);
+
+  totalCost = (pertrolMath + totalHireCost);
+
+  $("#petrol-cost").empty().prepend("<div><h4>"+"$"+pertrolMath+"</h4></div>");
+ 
+  $("#total-cost").empty().prepend("<div><h4 class='circle'>"+"$"+totalCost.toPrecision(3)+"</h4></div>");
+
+  
 
  });
 
