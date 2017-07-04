@@ -9,6 +9,8 @@ var MotorHome = 200;
 
 var petrolPrice = 1.859;
 
+var numberOfPeople = $("#numberOfPeople");
+
 function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
           mapTypeControl: false,
@@ -197,9 +199,17 @@ numbers = /([1-6])/;
 
 $("#calculate").click(function(){
 
-   
+  if (true) {
 
-});
+  	console.log(motorbikePrice + petrolPrice);
+  }
+
+parsefloat(console.log($('#numberOfPeople').val()));
+  	 
+	console.log("working");
+
+ });
+
 
 
   

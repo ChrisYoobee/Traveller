@@ -9,6 +9,9 @@ body {
   overflow-x: hidden; }
 
 /*Section 1*/
+#main_container a {
+  text-decoration: none; }
+
 #splash {
   width: 100vw;
   height: 100vh;
@@ -49,7 +52,8 @@ body {
   text-align: center;
   color: black;
   -webkit-transition: 1s;
-  color: black; }
+  color: black;
+  z-index: 45; }
   #calculate:hover {
     background-color: rgba(0, 0, 0, 0.2); }
   #calculate h3 {
@@ -289,3 +293,5 @@ h2 {
   position: relative;
   height: 40px;
   width: 40px; }
+
+/*# sourceMappingURL=style.css.map */

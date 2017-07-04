@@ -30,6 +30,12 @@ body {
 
 /*Section 1*/
 
+#main_container{
+    a{
+       text-decoration: none;
+    }
+}
+
 #splash{
   width: 100vw;
   height: 100vh;
@@ -78,6 +84,7 @@ body {
   color: black;
   -webkit-transition:1s;
   color: black;
+  z-index: 45;
 
    &:hover{
       background-color: rgba(0, 0, 0, 0.2);
