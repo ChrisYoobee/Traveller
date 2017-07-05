@@ -13,7 +13,9 @@ var transportType = 0;
 
 var numberOfPeople = $("#numberOfPeople");
 
-var distance2;
+var letersPer100;
+
+var distanceNumber;
 
 var pertrolMath;
 var totalCost;
@@ -113,8 +115,8 @@ function DistanceDisplay(distance,duration,end_address){
    $("#routeDistance").empty().prepend("<div><h4>"+distance+"</h4></div>");
    $("#routeDuration").empty().prepend("<div><h4> about "+duration+"</h4></div>");
    $("#routeAddress").empty().prepend("<div><h4>"+end_address+"</h4></div>");
-   distance2 = parseFloat(distance);
-   console.log(distance2);
+   distanceNumber = parseFloat(distance);
+   console.log(distanceNumber);
 
 };
 
@@ -211,6 +213,8 @@ numbers = /([1-6])/;
 $("#motorbike").click(function(){
 
   transportType = motorbikePrice;
+  letersPer100 = 3.7
+  $("#hire-type").empty().prepend("<div><h4>"+"Motorbike"+"</h4></div>");
  
 
 });
@@ -218,12 +222,17 @@ $("#motorbike").click(function(){
 $("#small-car").click(function(){
 
   transportType = smallCarPrice;
+  letersPer100 = 8.5;
+  $("#hire-type").empty().prepend("<div><h4>"+"Small Car"+"</h4></div>");
 
 });
 
 $("#large-car").click(function(){
 
   transportType = largeCarPrice;
+  letersPer100 = 9.7;
+  $("#hire-type").empty().prepend("<div><h4>"+"Large Car"+"</h4></div>");
+
   
 
 });
@@ -231,6 +240,9 @@ $("#large-car").click(function(){
 $("#motor-home").click(function(){
 
   transportType = motorHomePrice;
+  letersPer100 = 17;
+  $("#hire-type").empty().prepend("<div><h4>"+"Motor Home"+"</h4></div>");
+
 
 });
 
@@ -255,18 +267,18 @@ console.log(howManyDays * transportType);
 var totalHireCost = (howManyDays * transportType);
   	
 	console.log("working");
-  console.log(distance2);
+  console.log(distanceNumber);
   console.log(totalHireCost);
 
 
   $("#hire-cost").empty().prepend("<div><h4>"+"$"+totalHireCost+"</h4></div>");
 
-  pertrolMath = (distance2  * 0.085 * petrolPrice);
+  pertrolMath = (distanceNumber  * letersPer100 / 100 * petrolPrice);
   console.log(pertrolMath);
 
   totalCost = (pertrolMath + totalHireCost);
 
-  $("#petrol-cost").empty().prepend("<div><h4>"+"$"+pertrolMath+"</h4></div>");
+  $("#petrol-cost").empty().prepend("<div><h4>"+"$"+pertrolMath.toPrecision(5)+"</h4></div>");
  
   $("#total-cost").empty().prepend("<div><h4 class='circle'>"+"$"+totalCost.toPrecision(3)+"</h4></div>");
 
