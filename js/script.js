@@ -20,6 +20,9 @@ var distanceNumber;
 var pertrolMath;
 var totalCost;
 
+var maxNumPeople = 6;
+var maxNumDays = 5;
+
 
 
 
@@ -167,7 +170,7 @@ $(document).ready(function(){
 	  });
 	});
 
-numbers = /([1-6])/;
+	numbers = /([1-6])/;
 
 	//Blur is when you have left an element
     $("#numberOfPeople").keyup(function(test){
@@ -178,12 +181,89 @@ numbers = /([1-6])/;
         numberOfPeopleErrors.text("This field is required").removeClass("success").addClass("error");
         return;
       }
-     maxNumber = $(this).parent().find('span.input-errors');
-      if($(this).val() < 7){
-        $(this).parent().find('span.input-errors .numbers').remove();
-      } else if( (!$(this).val().match(numbers)) && ($("li.numbers").length === 0) ){
-        $(this).parent().find('span.input-errors ul').append("<li class='numbers'>Must be between 1 - 6</li>")
+
+if($(this).val() > 5){
+        numberOfPeopleErrors.text("Must 6 or less").removeClass("success").addClass("error");
+
+        $("#motorbike").hide();
+        $("#small-car").hide();
+        $("#large-car").hide();
+        return;
+    }
+
+ if($(this).val() > 8){
+        numberOfPeopleErrors.text("Must 6 or less").removeClass("success").addClass("error");
+
+        $("#motorbike").hide();
+        $("#small-car").hide();
+        $("#large-car").hide();
+        return;
+
+    }else{
+      	// $("#motorbike").show();
+       //  $("#small-car").show();
+       //  $("#large-car").show();
+      	// $("#motor-home").show();
       }
+
+      if($(this).val() > maxNumPeople){
+        numberOfPeopleErrors.text("Must be 6 or less").removeClass("success").addClass("error");
+
+        $("#motorbike").hide();
+        $("#small-car").hide();
+        $("#large-car").hide();
+        $("#motor-home").hide();
+        return;
+
+
+      }else{
+      	$("#motorbike").show();
+        $("#small-car").show();
+        $("#large-car").show();
+      	$("#motor-home").show();
+      	return;
+    }
+      
+
+
+
+     // maxNumber = $(this).parent().find('span.input-errors');
+     //  if($(this).val() < 7){
+     //    $(this).parent().find('span.input-errors .numbers').remove();
+     //  } else if( (!$(this).val().match(numbers)) && ($("li.numbers").length === 0) ){
+     //    $(this).parent().find('span.input-errors ul').append("<li class='numbers'>Must be between 1 - 6</li>")
+     //  }
+     
+      numberOfPeopleErrors.text("No errors").removeClass("error").addClass("success");
+      validNumberOfPeople = true;
+    });
+
+
+    $("#numberOfPeople").keyup(function(test){
+      var numberOfPeopleErrors = $(this).parent().find('span.input-errors');
+      numberOfPeopleErrors.empty();
+      //This element is required
+      if($(this).val().length === 0){
+        numberOfPeopleErrors.text("This field is required").removeClass("success").addClass("error");
+        return;
+      }
+
+if($(this).val() > 5){
+        numberOfPeopleErrors.text("Must 6 or less").removeClass("success").addClass("error");
+
+        $("#motorbike").hide();
+        $("#small-car").hide();
+        $("#large-car").hide();
+        return;
+    }else{
+    	$("#motorbike").show();
+        $("#small-car").show();
+        $("#large-car").show();
+      	$("#motor-home").show()
+      	return;
+    }
+
+
      
       numberOfPeopleErrors.text("No errors").removeClass("error").addClass("success");
       validNumberOfPeople = true;
@@ -243,6 +323,12 @@ $("#motor-home").click(function(){
   letersPer100 = 17;
   $("#hire-type").empty().prepend("<div><h4>"+"Motor Home"+"</h4></div>");
 
+  maxNumPeople = 7;
+   if($(this).val() > maxNumPeople){
+        numberOfPeopleErrors.text("Must be between 1 - 6 people").removeClass("success").addClass("error");
+        return;
+    }
+
 
 });
 
@@ -261,7 +347,7 @@ $("#calculate").click(function(){
  
 
 var people = parseInt($("#numberOfPeople").val());
-var howManyDays = parseInt($("#numberOfPeople").val());
+var howManyDays = parseInt($("#numberOfDays").val());
 console.log(howManyDays * transportType);
 
 var totalHireCost = (howManyDays * transportType);
