@@ -11,7 +11,7 @@ var petrolPrice = 1.859;
 
 var transportType = 0;
 
-var numberOfPeople = $("#numberOfPeople");
+// var numberOfPeople = parseInt($("#numberOfPeople").val());
 
 var letersPer100;
 
@@ -176,53 +176,60 @@ $(document).ready(function(){
     $("#numberOfPeople").keyup(function(test){
       var numberOfPeopleErrors = $(this).parent().find('span.input-errors');
       numberOfPeopleErrors.empty();
+
+
+
       //This element is required
       if($(this).val().length === 0){
         numberOfPeopleErrors.text("This field is required").removeClass("success").addClass("error");
         return;
       }
 
-if($(this).val() > 5){
-        numberOfPeopleErrors.text("Must 6 or less").removeClass("success").addClass("error");
-
-        $("#motorbike").hide();
-        $("#small-car").hide();
-        $("#large-car").hide();
-        return;
-    }
-
- if($(this).val() > 8){
-        numberOfPeopleErrors.text("Must 6 or less").removeClass("success").addClass("error");
-
-        $("#motorbike").hide();
-        $("#small-car").hide();
-        $("#large-car").hide();
-        return;
-
-    }else{
-      	// $("#motorbike").show();
-       //  $("#small-car").show();
-       //  $("#large-car").show();
-      	// $("#motor-home").show();
-      }
-
-      if($(this).val() > maxNumPeople){
-        numberOfPeopleErrors.text("Must be 6 or less").removeClass("success").addClass("error");
-
-        $("#motorbike").hide();
-        $("#small-car").hide();
-        $("#large-car").hide();
-        $("#motor-home").hide();
-        return;
 
 
-      }else{
-      	$("#motorbike").show();
-        $("#small-car").show();
-        $("#large-car").show();
-      	$("#motor-home").show();
-      	return;
-    }
+      // link the dropdown to the number not the number to the dropown
+
+
+
+
+// if($(this).val() > 5){
+//         numberOfPeopleErrors.text("Must 6 or less").removeClass("success").addClass("error");
+
+//         $("#motorbike").hide();
+//         $("#small-car").hide();
+//         $("#large-car").hide();
+//         return;
+//     }
+
+//  if($(this).val() < 1){
+//         numberOfPeopleErrors.text("Must 6 or less").removeClass("success").addClass("error");
+
+//         $("#motorbike").hide();
+//         $("#small-car").hide();
+//         $("#large-car").hide();
+//         return;
+
+//     }else{
+
+//       }
+
+//       if($(this).val() > maxNumPeople){
+//         numberOfPeopleErrors.text("Must be 6 or less").removeClass("success").addClass("error");
+
+//         $("#motorbike").hide();
+//         $("#small-car").hide();
+//         $("#large-car").hide();
+//         $("#motor-home").hide();
+//         return;
+
+
+//       }else{
+//       	$("#motorbike").show();
+//         $("#small-car").show();
+//         $("#large-car").show();
+//       	$("#motor-home").show();
+//       	return;
+//     }
       
 
 
@@ -239,28 +246,76 @@ if($(this).val() > 5){
     });
 
 
-    $("#numberOfPeople").keyup(function(test){
+    $("#numberOfDays, #numberOfPeople").keyup(function(test){
       var numberOfPeopleErrors = $(this).parent().find('span.input-errors');
       numberOfPeopleErrors.empty();
+
+      var numberOfDaysErrors = $(this).parent().find('span.input-errors');
+      numberOfDaysErrors.empty();
       //This element is required
       if($(this).val().length === 0){
         numberOfPeopleErrors.text("This field is required").removeClass("success").addClass("error");
         return;
       }
+     var numberOfPeople = parseInt($("#numberOfPeople").val());
+     var numberOfDays = parseInt($("#numberOfDays").val());
+    
+
+
+
+      if( (numberOfPeople <= 1) && (numberOfPeople > 0) && (numberOfDays <= 5) && (numberOfDays >= 1)){
+          $("#motorbike").show();
+
+             }else{
+
+              $("#motorbike").hide();
+             }
+
+
+
+             if((numberOfPeople <= 2) && (numberOfPeople >= 1) && (numberOfDays <= 10) && (numberOfDays >= 1)){
+          $("#small-car").show();
+
+             }else{
+
+              $("#small-car").hide();
+             }
+
+             if((numberOfPeople <= 5) && (numberOfPeople >= 1) && (numberOfDays <= 10) && (numberOfDays >= 3)){
+          $("#large-car").show();
+
+             }else{
+
+              $("#large-car").hide();
+             }
+
+        if((numberOfPeople <= 6) && (numberOfPeople >= 2) && (numberOfDays <= 15) && (numberOfDays >= 2)){
+          $("#motor-home").show();
+
+             }else{
+
+              $("#motor-home").hide();
+             }
+
+
+
+      console.log(numberOfPeople);
+      console.log(numberOfDays);
+      //Chocolate
 
 if($(this).val() > 5){
         numberOfPeopleErrors.text("Must 6 or less").removeClass("success").addClass("error");
 
-        $("#motorbike").hide();
-        $("#small-car").hide();
-        $("#large-car").hide();
-        return;
-    }else{
-    	$("#motorbike").show();
-        $("#small-car").show();
-        $("#large-car").show();
-      	$("#motor-home").show()
-      	return;
+    //     $("#motorbike").hide();
+    //     $("#small-car").hide();
+    //     $("#large-car").hide();
+    //     return;
+    // }else{
+    // 	$("#motorbike").show();
+    //     $("#small-car").show();
+    //     $("#large-car").show();
+    //   	$("#motor-home").show()
+    //   	return;
     }
 
 
@@ -366,7 +421,9 @@ var totalHireCost = (howManyDays * transportType);
 
   $("#petrol-cost").empty().prepend("<div><h4>"+"$"+pertrolMath.toPrecision(5)+"</h4></div>");
  
-  $("#total-cost").empty().prepend("<div><h4 class='circle'>"+"$"+totalCost.toPrecision(3)+"</h4></div>");
+  $("#total-cost").empty().prepend("<div><h4 class='circle'>"+"$"+totalCost.toFixed()+"</h4></div>");
+
+  // $("#total-cost").empty().prepend("<div><h4 class='circle'>"+"$"+totalCost.toPrecision(3)+"</h4></div>");
 
   
 
