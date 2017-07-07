@@ -185,61 +185,8 @@ $(document).ready(function(){
         return;
       }
 
-
-
-      // link the dropdown to the number not the number to the dropown
-
-
-
-
-// if($(this).val() > 5){
-//         numberOfPeopleErrors.text("Must 6 or less").removeClass("success").addClass("error");
-
-//         $("#motorbike").hide();
-//         $("#small-car").hide();
-//         $("#large-car").hide();
-//         return;
-//     }
-
-//  if($(this).val() < 1){
-//         numberOfPeopleErrors.text("Must 6 or less").removeClass("success").addClass("error");
-
-//         $("#motorbike").hide();
-//         $("#small-car").hide();
-//         $("#large-car").hide();
-//         return;
-
-//     }else{
-
-//       }
-
-//       if($(this).val() > maxNumPeople){
-//         numberOfPeopleErrors.text("Must be 6 or less").removeClass("success").addClass("error");
-
-//         $("#motorbike").hide();
-//         $("#small-car").hide();
-//         $("#large-car").hide();
-//         $("#motor-home").hide();
-//         return;
-
-
-//       }else{
-//       	$("#motorbike").show();
-//         $("#small-car").show();
-//         $("#large-car").show();
-//       	$("#motor-home").show();
-//       	return;
-//     }
       
 
-
-
-     // maxNumber = $(this).parent().find('span.input-errors');
-     //  if($(this).val() < 7){
-     //    $(this).parent().find('span.input-errors .numbers').remove();
-     //  } else if( (!$(this).val().match(numbers)) && ($("li.numbers").length === 0) ){
-     //    $(this).parent().find('span.input-errors ul').append("<li class='numbers'>Must be between 1 - 6</li>")
-     //  }
      
       numberOfPeopleErrors.text("No errors").removeClass("error").addClass("success");
       validNumberOfPeople = true;
@@ -296,6 +243,7 @@ $(document).ready(function(){
 
               $("#motor-home").hide();
              }
+
 
 
 
