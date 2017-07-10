@@ -32,6 +32,10 @@ var daysValidInput = false;
 var peopleValidInput = false;
 
 
+var daysVal = ($("#numberOfDays"));
+var peopleVal = ($("#numberOfPeople"));
+
+
 
 
 function initMap() {
@@ -196,24 +200,25 @@ $(document).ready(function(){
 
        if($(this).val().length === 0){
         numberOfPeopleErrors.text("This field is required").removeClass("success").addClass("error");
+        noErrors = false;
+        peopleValidInput = false;
         return;
       }
 
      
 
-      if($("#numberOfPeople").val() >6 ) {
+      else if( (peopleVal.val() >6) || (peopleVal.val() <1) ) {
         numberOfPeopleErrors.text("Must be between 1 and 6").removeClass("success").addClass("error");
         noErrors = false;
-        validNumberOfPeople = false;
         peopleValidInput = false;
 
 
 
 
-    }else if($("#numberOfPeople").val() <1 ) {
-        numberOfPeopleErrors.text("Must be between 1 and 6").removeClass("success").addClass("error");
-        noErrors = false;
-        validNumberOfPeople = false;
+    // }else if($("#numberOfPeople").val() <1 ) {
+    //     numberOfPeopleErrors.text("Must be between 1 and 6").removeClass("success").addClass("error");
+    //     noErrors = false;
+    //     validNumberOfPeople = false;
 
     }else{
       noErrors = true;
@@ -228,38 +233,26 @@ console.log(peopleValidInput);
 
 
 
-
     $("#numberOfDays").keyup(function(){
 
-      numberOfDays = parseInt($("#numberOfDays").val());
+      numberOfDays = parseInt(($("#numberOfDays").val()));
       var numberOfDaysErrors = $("#numberOfDays").parent().find('span.input-errors');
       numberOfDaysErrors.empty();
 
        if($(this).val().length === 0){
         numberOfDaysErrors.text("This field is required").removeClass("success").addClass("error");
-        validNumberOfDays = false;
+        daysValidInput = false;
         return;
-      }else if($("#numberOfDays").val() >15 ) {
+      }else if( (daysVal.val() >15) || (daysVal.val() <1) ) {
         numberOfDaysErrors.text("Must be between 1 and 15").removeClass("success").addClass("error");
         noErrors = false;
-        
-        validNumberOfDays = false;
+        daysValidInput = false;
       }else{
       noErrors = true;
       daysValidInput = true;
       
     }
 
-  if($("#numberOfDays").val() <1 ) {
-        numberOfDaysErrors.text("Must be between 1 and 15").removeClass("success").addClass("error");
-        noErrors = false;
-        validNumberOfPeople = false;
-
-    }else{
-      // noErrors = true;
-      validNumberOfDays = true;
-
-    }
 
     });
 
@@ -277,15 +270,16 @@ console.log(peopleValidInput);
       //   numberOfPeopleErrors.text("This field is required").removeClass("success").addClass("error");
       //   return;
       // }
-      	if ((daysValidInput == true) &&  (peopleValidInput == true) ) {
+      	if ((daysValidInput === true) &&  (peopleValidInput === true) ) {
 
 		$("#button-blocker").hide();
-		alert("Nice");
+    $(".button-error").hide();
+		// alert("Button blocker gone");
 
 
       	}else{
       		$("#button-blocker").show();
-      		alert("Whoop");
+      		// alert("Button blocker is back!");
       	}
   
 
@@ -423,8 +417,9 @@ $("#motor-home").click(function(){
 
 $("#button-blocker").click(function(){
 
-alert("not all fields have been completed correctly")
+// alert("not all fields have been completed correctly")
 // $("#button-blocker").hide();
+$(".button-error").show();
 
 
 });

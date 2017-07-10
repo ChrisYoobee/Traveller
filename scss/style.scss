@@ -14,7 +14,7 @@
 
 
 *{
-  padding: 00px;
+  padding: 0px;
   margin: 0px;
 }
 
@@ -197,6 +197,35 @@ body {
 
 
 /*Section 2*/
+
+.to-splash-button{
+  position:absolute;
+  z-index:100;
+  left:47%;
+  background-color: rgba(0,0,0,0.3);
+  width:120px;
+  height:30px;
+  border-radius: 2px;
+
+  img{
+    display:block;
+    margin:auto;
+    margin-top: 8px;
+    } 
+
+
+    &:hover{
+      background:#111;
+
+
+      img{
+      margin-top: 4px;
+    } 
+
+     
+    }
+
+}
 
 #map_function{
   width: 100vw;
@@ -415,6 +444,13 @@ h2{
     position: relative;
     height: 40px;
     width: 40px;
+}
+
+.button-error{
+  text-align: center;
+  color: #c64949;
+  display: none;
+
 }
 
 
