@@ -25,8 +25,11 @@ var maxNumDays = 5;
 
 var noErrors = false;
 
- numberOfPeople = parseInt($("#numberOfPeople").val());
-     numberOfDays = parseInt($("#numberOfDays").val());
+var numberOfPeople = parseInt($("#numberOfPeople").val());
+var numberOfDays = parseInt($("#numberOfDays").val());
+
+var daysValidInput = false;
+var peopleValidInput = false;
 
 
 
@@ -202,6 +205,7 @@ $(document).ready(function(){
         numberOfPeopleErrors.text("Must be between 1 and 6").removeClass("success").addClass("error");
         noErrors = false;
         validNumberOfPeople = false;
+        peopleValidInput = false;
 
 
 
@@ -213,17 +217,10 @@ $(document).ready(function(){
 
     }else{
       noErrors = true;
+      peopleValidInput = true;
     }
 
-  // if($("#numberOfPeople").val() <1 ) {
-  //       numberOfPeopleErrors.text("Must be between 1 and 6").removeClass("success").addClass("error");
-  //       noErrors = false;
-  //       validNumberOfPeople = false;
-
-  //   }else{
-  //     // noErrors = false;
-  //     validNumberOfPeople = true;
-  //   }
+console.log(peopleValidInput);
 
 
 
@@ -240,19 +237,17 @@ $(document).ready(function(){
 
        if($(this).val().length === 0){
         numberOfDaysErrors.text("This field is required").removeClass("success").addClass("error");
+        validNumberOfDays = false;
         return;
-      }
-
-
-      if($("#numberOfDays").val() >15 ) {
+      }else if($("#numberOfDays").val() >15 ) {
         numberOfDaysErrors.text("Must be between 1 and 15").removeClass("success").addClass("error");
         noErrors = false;
-        validNumberOfPeople = false;
-        $("#button-blocker").show();
-
-    }else{
+        
+        validNumberOfDays = false;
+      }else{
       noErrors = true;
-      $("#button-blocker").hide();
+      daysValidInput = true;
+      
     }
 
   if($("#numberOfDays").val() <1 ) {
@@ -262,11 +257,13 @@ $(document).ready(function(){
 
     }else{
       // noErrors = true;
-      validNumberOfPeople = true;
+      validNumberOfDays = true;
 
     }
 
     });
+
+
 
 
     $("#numberOfDays, #numberOfPeople").keyup(function(){
@@ -280,7 +277,16 @@ $(document).ready(function(){
       //   numberOfPeopleErrors.text("This field is required").removeClass("success").addClass("error");
       //   return;
       // }
+      	if ((daysValidInput == true) &&  (peopleValidInput == true) ) {
 
+		$("#button-blocker").hide();
+		alert("Nice");
+
+
+      	}else{
+      		$("#button-blocker").show();
+      		alert("Whoop");
+      	}
   
 
      numberOfPeople = parseInt($("#numberOfPeople").val());

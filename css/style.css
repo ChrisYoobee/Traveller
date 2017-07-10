@@ -1,5 +1,5 @@
 * {
-  padding: 0px;
+  padding: 00px;
   margin: 0px; }
 
 body {
@@ -17,7 +17,6 @@ body {
   height: 100vh;
   background-image: url("../assets/background1.png");
   background-color: black;
-  border: soild green 1px;
   z-index: 2010; }
 
 .logo {
@@ -318,3 +317,5 @@ video {
   height: auto;
   z-index: -100;
   transform: translateX(-50%) translateY(-50%); }
+
+/*# sourceMappingURL=style.css.map */
