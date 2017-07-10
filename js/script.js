@@ -170,7 +170,7 @@ $(document).ready(function(){
         numberOfDays = parseInt(($("#numberOfDays").val()));
         var numberOfDaysErrors = $("#numberOfDays").parent().find('span.input-errors');
         numberOfDaysErrors.empty();
-        w
+        
         if($(this).val().length === 0){
             numberOfDaysErrors.text("This field is required").removeClass("success").addClass("error");
             daysValidInput = false;
