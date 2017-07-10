@@ -1,5 +1,5 @@
 * {
-  padding: 0;
+  padding: 0px;
   margin: 0px; }
 
 body {
@@ -18,7 +18,7 @@ body {
   background-image: url("../assets/background1.png");
   background-color: black;
   border: soild green 1px;
-  z-index: 20; }
+  z-index: 2010; }
 
 .logo {
   display: block;
@@ -45,7 +45,7 @@ body {
 #calculate {
   height: 70px;
   width: 250px;
-  margin-top: 100px;
+  margin-top: 80px;
   border: 4px solid black;
   margin-right: auto;
   margin-left: auto;
@@ -53,7 +53,8 @@ body {
   color: black;
   -webkit-transition: 1s;
   color: black;
-  z-index: 45; }
+  z-index: 45;
+  /*position: absolute;*/ }
   #calculate:hover {
     background-color: rgba(0, 0, 0, 0.2); }
   #calculate h3 {
@@ -61,6 +62,19 @@ body {
     color: black; }
   #calculate a {
     text-decoration: none; }
+
+#button-blocker {
+  height: 70px;
+  width: 100vw;
+  margin-top: 80px;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+  color: black;
+  -webkit-transition: 1s;
+  position: absolute;
+  z-index: 405;
+  display: block; }
 
 .inputs {
   width: 40vw;
@@ -215,7 +229,6 @@ body {
   #how_it_works a {
     text-decoration: none; }
 
-
 h2 {
   font-family: 'Exo', sans-serif;
   margin: 0;
@@ -233,12 +246,12 @@ h2 {
   text-align: center;
   color: white; }
   .text_box p {
-    font-size: 1.5em; }
+    font-size: 1em; }
 
 .to_top {
   height: 70px;
   width: 250px;
-  margin-top: 100px;
+  margin-top: 10px;
   border: 4px solid black;
   margin-right: auto;
   margin-left: auto;
@@ -250,10 +263,10 @@ h2 {
   .to_top h3 {
     font-family: 'Ubuntu', sans-serif; }
 
-.clicked {
-  margin-top: 105px;
-  -webkit-transition: 1s; }
-
+/*.clicked{
+    margin-top: 5px;
+    -webkit-transition:1s; 
+ }*/
 .controls {
   /*margin-top: 10px;*/
   border: 1px solid transparent;
@@ -295,6 +308,13 @@ h2 {
   height: 40px;
   width: 40px; }
 
-
-
-/*# sourceMappingURL=style.css.map */
+video {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  transform: translateX(-50%) translateY(-50%); }

@@ -248,9 +248,11 @@ $(document).ready(function(){
         numberOfDaysErrors.text("Must be between 1 and 15").removeClass("success").addClass("error");
         noErrors = false;
         validNumberOfPeople = false;
+        $("#button-blocker").show();
 
     }else{
       noErrors = true;
+      $("#button-blocker").hide();
     }
 
   if($("#numberOfDays").val() <1 ) {
@@ -261,6 +263,7 @@ $(document).ready(function(){
     }else{
       // noErrors = true;
       validNumberOfPeople = true;
+
     }
 
     });
@@ -412,7 +415,13 @@ $("#motor-home").click(function(){
 
 });
 
+$("#button-blocker").click(function(){
 
+alert("not all fields have been completed correctly")
+// $("#button-blocker").hide();
+
+
+});
 
 $("#calculate").click(function(){
 
@@ -450,7 +459,7 @@ var totalHireCost = (howManyDays * transportType);
 
   // $("#total-cost").empty().prepend("<div><h4 class='circle'>"+"$"+totalCost.toPrecision(3)+"</h4></div>");
   }else{
-    alert("Not all form inputs completed");
+    $("button-blocker").hide();
   }
 
 
