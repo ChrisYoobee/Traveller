@@ -215,6 +215,7 @@ body {
   #how_it_works a {
     text-decoration: none; }
 
+
 h2 {
   font-family: 'Exo', sans-serif;
   margin: 0;
@@ -293,5 +294,7 @@ h2 {
   position: relative;
   height: 40px;
   width: 40px; }
+
+
 
 /*# sourceMappingURL=style.css.map */

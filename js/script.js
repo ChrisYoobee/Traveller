@@ -23,6 +23,11 @@ var totalCost;
 var maxNumPeople = 6;
 var maxNumDays = 5;
 
+var noErrors = false;
+
+ numberOfPeople = parseInt($("#numberOfPeople").val());
+     numberOfDays = parseInt($("#numberOfDays").val());
+
 
 
 
@@ -118,7 +123,8 @@ function DistanceDisplay(distance,duration,end_address){
    $("#routeDistance").empty().prepend("<div><h4>"+distance+"</h4></div>");
    $("#routeDuration").empty().prepend("<div><h4> about "+duration+"</h4></div>");
    $("#routeAddress").empty().prepend("<div><h4>"+end_address+"</h4></div>");
-   distanceNumber = parseFloat(distance);
+   distanceNumber = parseFloat(distance.replace(",", ""));
+
    console.log(distanceNumber);
 
 };
@@ -130,6 +136,11 @@ function DistanceDisplay(distance,duration,end_address){
 //Jquery
 
 $(document).ready(function(){
+
+
+  $("#calculate").click(function(event){
+    event.preventDefault();
+  });
 
 	//this is where we apply opacity to the arrow
 	$(window).scroll( function(){
@@ -172,40 +183,125 @@ $(document).ready(function(){
 
 	numbers = /([1-6])/;
 
-	//Blur is when you have left an element
-    $("#numberOfPeople").keyup(function(test){
-      var numberOfPeopleErrors = $(this).parent().find('span.input-errors');
+
+    $("#numberOfPeople").keyup(function(){
+
+       numberOfPeople = parseInt($("#numberOfPeople").val());
+     
+         var numberOfPeopleErrors = $("#numberOfPeople").parent().find('span.input-errors');
       numberOfPeopleErrors.empty();
 
-
-
-      //This element is required
-      if($(this).val().length === 0){
+       if($(this).val().length === 0){
         numberOfPeopleErrors.text("This field is required").removeClass("success").addClass("error");
         return;
       }
 
-      
-
      
-      numberOfPeopleErrors.text("No errors").removeClass("error").addClass("success");
-      validNumberOfPeople = true;
+
+      if($("#numberOfPeople").val() >6 ) {
+        numberOfPeopleErrors.text("Must be between 1 and 6").removeClass("success").addClass("error");
+        noErrors = false;
+        validNumberOfPeople = false;
+
+
+
+
+    }else if($("#numberOfPeople").val() <1 ) {
+        numberOfPeopleErrors.text("Must be between 1 and 6").removeClass("success").addClass("error");
+        noErrors = false;
+        validNumberOfPeople = false;
+
+    }else{
+      noErrors = true;
+    }
+
+  // if($("#numberOfPeople").val() <1 ) {
+  //       numberOfPeopleErrors.text("Must be between 1 and 6").removeClass("success").addClass("error");
+  //       noErrors = false;
+  //       validNumberOfPeople = false;
+
+  //   }else{
+  //     // noErrors = false;
+  //     validNumberOfPeople = true;
+  //   }
+
+
+
     });
 
 
-    $("#numberOfDays, #numberOfPeople").keyup(function(test){
-      var numberOfPeopleErrors = $(this).parent().find('span.input-errors');
-      numberOfPeopleErrors.empty();
 
-      var numberOfDaysErrors = $(this).parent().find('span.input-errors');
+
+    $("#numberOfDays").keyup(function(){
+
+      numberOfDays = parseInt($("#numberOfDays").val());
+      var numberOfDaysErrors = $("#numberOfDays").parent().find('span.input-errors');
       numberOfDaysErrors.empty();
-      //This element is required
-      if($(this).val().length === 0){
-        numberOfPeopleErrors.text("This field is required").removeClass("success").addClass("error");
+
+       if($(this).val().length === 0){
+        numberOfDaysErrors.text("This field is required").removeClass("success").addClass("error");
         return;
       }
-     var numberOfPeople = parseInt($("#numberOfPeople").val());
-     var numberOfDays = parseInt($("#numberOfDays").val());
+
+
+      if($("#numberOfDays").val() >15 ) {
+        numberOfDaysErrors.text("Must be between 1 and 15").removeClass("success").addClass("error");
+        noErrors = false;
+        validNumberOfPeople = false;
+
+    }else{
+      noErrors = true;
+    }
+
+  if($("#numberOfDays").val() <1 ) {
+        numberOfDaysErrors.text("Must be between 1 and 15").removeClass("success").addClass("error");
+        noErrors = false;
+        validNumberOfPeople = false;
+
+    }else{
+      // noErrors = true;
+      validNumberOfPeople = true;
+    }
+
+    });
+
+
+    $("#numberOfDays, #numberOfPeople").keyup(function(){
+      // var numberOfPeopleErrors = $("#numberOfPeople").parent().find('span.input-errors');
+      // numberOfPeopleErrors.empty();
+
+      // var numberOfDaysErrors = $("#numberOfDays").parent().find('span.input-errors');
+      // numberOfDaysErrors.empty();
+      //This element is required
+      // if($(this).val().length === 0){
+      //   numberOfPeopleErrors.text("This field is required").removeClass("success").addClass("error");
+      //   return;
+      // }
+
+  
+
+     numberOfPeople = parseInt($("#numberOfPeople").val());
+     numberOfDays = parseInt($("#numberOfDays").val());
+
+
+  //    if($("#numberOfPeople").val() >5 ) {
+  //       numberOfPeopleErrors.text("Must be between 1 and 6").removeClass("success").addClass("error");
+  //       noErrors = false;
+  //       validNumberOfPeople = false;
+
+  //   }else{
+  //     noErrors = true
+  //   }
+
+  // if($("#numberOfPeople").val() <1 ) {
+  //       numberOfPeopleErrors.text("Must be between 1 and 6").removeClass("success").addClass("error");
+  //       noErrors = false;
+  //       validNumberOfPeople = false;
+
+  //   }else{
+  //     noErrors = true;
+  //     validNumberOfPeople = true;
+  //   }
     
 
 
@@ -247,29 +343,10 @@ $(document).ready(function(){
 
 
 
-      console.log(numberOfPeople);
-      console.log(numberOfDays);
-      //Chocolate
-
-if($(this).val() > 5){
-        numberOfPeopleErrors.text("Must 6 or less").removeClass("success").addClass("error");
-
-    //     $("#motorbike").hide();
-    //     $("#small-car").hide();
-    //     $("#large-car").hide();
-    //     return;
-    // }else{
-    // 	$("#motorbike").show();
-    //     $("#small-car").show();
-    //     $("#large-car").show();
-    //   	$("#motor-home").show()
-    //   	return;
-    }
-
-
-     
-      numberOfPeopleErrors.text("No errors").removeClass("error").addClass("success");
-      validNumberOfPeople = true;
+      // console.log(numberOfPeople);
+      // console.log(numberOfDays);
+      console.log(noErrors);
+  
     });
 
 
@@ -327,10 +404,10 @@ $("#motor-home").click(function(){
   $("#hire-type").empty().prepend("<div><h4>"+"Motor Home"+"</h4></div>");
 
   maxNumPeople = 7;
-   if($(this).val() > maxNumPeople){
-        numberOfPeopleErrors.text("Must be between 1 - 6 people").removeClass("success").addClass("error");
-        return;
-    }
+   // if($(this).val() > maxNumPeople){
+   //      numberOfPeopleErrors.text("Must be between 1 - 6 people").removeClass("success").addClass("error");
+   //      return;
+   //  }
 
 
 });
@@ -339,28 +416,28 @@ $("#motor-home").click(function(){
 
 $("#calculate").click(function(){
 
-  if (true) {
+
+
+  if (noErrors == true) {
 
     
 
   	console.log(motorbikePrice + petrolPrice);
     // console.log(distance);
-  }
-
- 
 
 var people = parseInt($("#numberOfPeople").val());
 var howManyDays = parseInt($("#numberOfDays").val());
 console.log(howManyDays * transportType);
 
 var totalHireCost = (howManyDays * transportType);
-  	
-	console.log("working");
+    
+  console.log("working");
   console.log(distanceNumber);
   console.log(totalHireCost);
 
 
   $("#hire-cost").empty().prepend("<div><h4>"+"$"+totalHireCost+"</h4></div>");
+
 
   pertrolMath = (distanceNumber  * letersPer100 / 100 * petrolPrice);
   console.log(pertrolMath);
@@ -372,6 +449,15 @@ var totalHireCost = (howManyDays * transportType);
   $("#total-cost").empty().prepend("<div><h4 class='circle'>"+"$"+totalCost.toFixed()+"</h4></div>");
 
   // $("#total-cost").empty().prepend("<div><h4 class='circle'>"+"$"+totalCost.toPrecision(3)+"</h4></div>");
+  }else{
+    alert("Not all form inputs completed");
+  }
+
+
+console.log(noErrors);
+ 
+
+
 
   
 
