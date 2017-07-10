@@ -8,7 +8,7 @@ body {
   padding: 0;
   overflow-x: hidden; }
 
-/*Section 1*/
+/*------- Splash page with inputs -------*/
 #main_container a {
   text-decoration: none; }
 
@@ -52,8 +52,7 @@ body {
   color: black;
   -webkit-transition: 1s;
   color: black;
-  z-index: 45;
-  /*position: absolute;*/ }
+  z-index: 45; }
   #calculate:hover {
     background-color: rgba(0, 0, 0, 0.2); }
   #calculate h3 {
@@ -78,7 +77,6 @@ body {
 .inputs {
   width: 40vw;
   height: 50vh;
-  /*border: solid black 1px;*/
   margin-left: auto;
   margin-right: auto;
   margin-top: 100px; }
@@ -136,7 +134,7 @@ body {
 .error {
   color: #c64949; }
 
-/*Section 2*/
+/*------- Map and costs section -------*/
 .to-splash-button {
   position: absolute;
   z-index: 100;
@@ -236,7 +234,7 @@ body {
   margin-right: auto;
   margin-left: auto; }
 
-/*Section 3*/
+/*------- Section explaining how the website works -------*/
 #how_it_works {
   width: 100vw;
   height: 100vh;

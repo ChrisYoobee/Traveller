@@ -18,13 +18,6 @@
 		<link href="https://fonts.googleapis.com/css?family=Exo" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Istok+Web" rel="stylesheet">
-
-		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-		<!--[if lt IE 9]>
-			<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-		<![endif]-->
 		
 	</head>
 	<body>
@@ -34,80 +27,70 @@
 			<div id="splash">
 				
 				<img class="logo" src="assets/logo_White.png" alt="Traveller logo">	
-				<a href="#how_it_works"> <img class="info" src="assets/info.png" alt="link to info about website"> </a>
+				<a href="#how_it_works"> 
+					<img class="info" src="assets/info.png" alt="link to info about website"> 
+				</a>
 				
+				<div class="inputs">
+					<form>
+						<label for="startLocation">Start Location</label>
+						<input id="origin-input" class="controls" type="text"placeholder="Enter an origin location">
+						<label for="endLocation">End Location</label>
+					    <input id="destination-input" class="controls" type="text" placeholder="Enter a destination location">
+					</form>
 
-					<div class="inputs">
-
-						<!-- <input id="origin-input" class="controls" type="text"placeholder="Enter an origin location">
-
-					    <input id="destination-input" class="controls" type="text" placeholder="Enter a destination location"> -->
-
-					  
-
-								<form>
-								  <label for="startLocation">Start Location</label>
-								  <input id="origin-input" class="controls" type="text"placeholder="Enter an origin location">
-								  <label for="endLocation">End Location</label>
-					    		  <input id="destination-input" class="controls" type="text" placeholder="Enter a destination location">
-								</form>
-
-
-					
-
-						 	<div class="form-group">
-						  		<label for="numberOfPeople">How Many People (Max - 6)</label>
-						  		<input class="form-control" type="number" name="numberOfPeople" id="numberOfPeople" class="pdInputs">
-						  		<span class="input-errors"></span>
-					  		</div>
-
-					  		<div class="form-group">
-						  		<label for="firstName">How Many Days (Max - 15)</label>
-						  		<input class="form-control" type="number" name="numberOfDays" id="numberOfDays" class="pdInputs">
-						  		<span class="input-errors"></span>
-					  		</div>
-
-
-
-							     <div class="input-group">
-							      <div class="input-group-btn">
-							        <button type="button" class="btn btn-default dropdown-toggle" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Type of Transport<span class="caret"></span></button>
-							        <ul class="dropdown-menu dropdown-menu-right">
-							          <li id="motorbike" ><a href="#">Motorbike 1 Person</a></li>
-							          <li id="small-car"><a href="#">Small Car 1-2 People</a></li>
-							          <li id="large-car"><a href="#">Large Car 1-5 people</a></li>
-							          <li id="motor-home"><a href="#">Motor Home 2-6 people</a></li>
-							        </ul>
-							      </div><!-- /btn-group -->
-							     </div><!-- /input-group -->
-							 
-
-					
-						
-						</div>
-						<div id="button-blocker">
-						</div>
-
-						<a href="#map">
-							<div id="calculate">
-									<h3 id="calculateText submit-button">Calculate</h3> 
-						 	</div>
-						</a>
-
-						<div class="button-error">
-							<label>All feilds must be filled in properly</label>
-						</div>
-						
-						
+					<div class="form-group">
+						<label for="numberOfPeople">How Many People (Max - 6)</label>
+						<input class="form-control" type="number" name="numberOfPeople" id="numberOfPeople" class="pdInputs">
+						<span class="input-errors"></span>
 					</div>
+
+					<div class="form-group">
+						<label for="firstName">How Many Days (Max - 15)</label>
+						<input class="form-control" type="number" name="numberOfDays" id="numberOfDays" class="pdInputs">
+						<span class="input-errors"></span>
+					</div>
+
+
+
+					<div class="input-group">
+						<div class="input-group-btn">
+							<button type="button" class="btn btn-default dropdown-toggle" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Type of Transport<span class="caret"></span></button>
+							<ul class="dropdown-menu dropdown-menu-right">
+							    <li id="motorbike" ><a href="#">Motorbike 1 Person</a></li>
+							    <li id="small-car"><a href="#">Small Car 1-2 People</a></li>
+							    <li id="large-car"><a href="#">Large Car 1-5 people</a></li>
+							    <li id="motor-home"><a href="#">Motor Home 2-6 people</a></li>
+							</ul>
+						</div><!-- /btn-group -->
+					</div><!-- /input-group -->
+							 
+					</div>
+						<div id="button-blocker">
+					</div>
+
+					<a href="#map">
+						<div id="calculate">
+							<h3 id="calculateText submit-button">Calculate</h3> 
+						 </div>
+					</a>
+
+					<div class="button-error">
+						<label>All feilds must be filled in properly</label>
+					</div>
+						
+						
+			</div>
 			
 			<div id="map_function">
 				<a href="#splash"> 
 					<div class="to-splash-button">
 					<img src="assets/up-arrow.png" alt="up arrow icon">
 					</div>
-				</a>	
+				</a>
+
 				<div id="map"></div>
+
 				<div class="price_section">
 					<div class="transport_cost">
 						<h3>Transport Hire Cost</h3>
@@ -153,7 +136,6 @@
 						<h3>Back to Top</h3>
 					</div>
 				</a>
-
 
 			</div>
 

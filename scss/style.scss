@@ -28,7 +28,7 @@ body {
 
 
 
-/*Section 1*/
+/*------- Splash page with inputs -------*/
 
 #main_container{
     a{
@@ -84,7 +84,6 @@ body {
   -webkit-transition:1s;
   color: black;
   z-index: 45;
-  /*position: absolute;*/
 
    &:hover{
       background-color: rgba(0, 0, 0, 0.2);
@@ -121,7 +120,6 @@ body {
 .inputs{
   width: 40vw;
   height: 50vh;
-  /*border: solid black 1px;*/
   margin-left: auto;
   margin-right: auto;
   margin-top: 100px;
@@ -196,7 +194,7 @@ body {
 }
 
 
-/*Section 2*/
+/*------- Map and costs section -------*/
 
 .to-splash-button{
   position:absolute;
@@ -332,7 +330,7 @@ body {
 }
 
 
-/*Section 3*/
+/*------- Section explaining how the website works -------*/
 
 #how_it_works{
 
