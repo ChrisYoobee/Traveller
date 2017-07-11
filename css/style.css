@@ -15,8 +15,8 @@ body {
 #splash {
   width: 100vw;
   height: 100vh;
-  background-image: url("../assets/background1.png");
-  background-color: black;
+  background-image: url("../assets/background2.png");
+  /* background-color: black;*/
   z-index: 2010; }
 
 .logo {
@@ -226,12 +226,12 @@ body {
   margin-left: auto; }
 
 /*------- Section explaining how the website works -------*/
-#how_it_works {
+#how-it-works {
   width: 100vw;
   height: 100vh;
   min-height: 750px;
   background-color: #57BA84; }
-  #how_it_works a {
+  #how-it-works a {
     text-decoration: none; }
 
 h2 {
@@ -317,7 +317,7 @@ h2 {
   left: 50%;
   width: 100vw;
   height: 100vh;
-  z-index: 100;
+  z-index: -1;
   position: absolute;
   transform: translateX(-50%) translateY(-50%); }
 
@@ -326,3 +326,16 @@ h2 {
   height: 600px;
   background-color: grey;
   margin: 0 auto; }
+
+video {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: 1;
+  transform: translateX(-50%) translateY(-50%);
+  background-size: cover;
+  transition: 1s opacity; }
