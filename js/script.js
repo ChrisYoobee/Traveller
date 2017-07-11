@@ -106,9 +106,8 @@ function initMap() {
 
 function DistanceDisplay(distance,duration,end_address){
     var Details = $("#Details").val();
-    $("#routeDistance").empty().prepend("<div><h4>"+distance+"</h4></div>");
-    $("#routeDuration").empty().prepend("<div><h4> about "+duration+"</h4></div>");
-    $("#routeAddress").empty().prepend("<div><h4>"+end_address+"</h4></div>");
+    $("#route-distance").empty().prepend("<div><h4>"+distance+"</h4></div>");
+    $("#route-duration").empty().prepend("<div><h4> about "+duration+"</h4></div>");
     distanceNumber = parseFloat(distance.replace(",", ""));
 };
 
@@ -129,7 +128,7 @@ $(document).ready(function(){
 	      if (target.length) {
 	        $("html,body").animate({
 	          scrollTop: target.offset().top
-	        }, 800);
+	        }, 1000);
 	        return false;
 	      }
 	    }

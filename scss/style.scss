@@ -30,7 +30,7 @@ body {
 
 /*------- Splash page with inputs -------*/
 
-#main_container{
+#main-container{
     a{
        text-decoration: none;
     }
@@ -126,15 +126,6 @@ body {
    
 }
 
-.start_finish{
-  float: left;
-  display: inline-block;
-  margin-right: auto;
-  margin-left: auto;
-  height: 40%;
-  width: 100%;
-  border: solid black 1px;
-}
 
 .start{
   float: left;
@@ -225,7 +216,7 @@ body {
 
 }
 
-#map_function{
+#map-function{
   width: 100vw;
   height: 100vh;
 }
@@ -235,7 +226,7 @@ body {
   
 }
 
-.price_section{
+.price-section{
   width: 100vw;
   height: 25vh;
   background-color: #16ADB5;
@@ -243,7 +234,7 @@ body {
 }
 
 
-.transport_cost{
+.transport-cost{
   position: inherit;
   display: inline-block;
   float: left;
@@ -272,7 +263,7 @@ body {
     }
 }
 
-.petrol_cost{
+.petrol-cost{
   position: inherit;
   display: inline-block;
   float: left;
@@ -354,7 +345,7 @@ h2{
 }
 
 
-.text_box{
+.text-box{
   height: 40vh;
   width: 70vw;
   margin-top: 120px;
@@ -367,7 +358,7 @@ h2{
   }
 }
 
-.to_top{
+.to-top{
   height: 70px;
   width: 250px;
   margin-top: 10px;
@@ -454,5 +445,13 @@ h2{
     transform: translateX(-50%) translateY(-50%);
   }
 
+
+.block{
+
+  width: 400px;
+  height: 600px;
+  background-color: grey;
+  margin: 0 auto;
+}
 
 
