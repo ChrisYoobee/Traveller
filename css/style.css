@@ -260,7 +260,7 @@ h2 {
   text-align: center;
   color: white; }
   .text_box p {
-    font-size: 1em; }
+    font-size: 1.2em; }
 
 .to_top {
   height: 70px;
@@ -320,13 +320,14 @@ h2 {
   color: #c64949;
   display: none; }
 
-video {
+#cino {
   position: fixed;
   top: 50%;
   left: 50%;
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  z-index: -100;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+  position: absolute;
   transform: translateX(-50%) translateY(-50%); }
+
+/*# sourceMappingURL=style.css.map */

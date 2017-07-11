@@ -199,12 +199,7 @@ $(document).ready(function(){
         $("#button-blocker").show();
     }
 
-    // Making an error pop up if you try click the calculate button without inputting any information
-
-    $("#button-blocker").click(function(){
-        $(".button-error").show();
-    });
-  
+   
 
     // if statments showing and hiding the list of vehicles, depending on what numbers are input for number of days and number of people
 
@@ -304,6 +299,12 @@ $(document).ready(function(){
             }
     });
 
+
+ 	// Making an error pop up if you try click the calculate button without inputting any information
+
+    $("#button-blocker").click(function(){
+        $(".button-error").show();
+    });
 
 });
 

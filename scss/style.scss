@@ -363,7 +363,7 @@ h2{
   text-align: center;
   color: white;
   p{
-    font-size: 1em;
+    font-size: 1.2em;
   }
 }
 
@@ -443,13 +443,16 @@ h2{
 }
 
 
-video { 
+#cino { 
     position: fixed;
     top: 50%;
     left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    z-index: -100;
-    transform: translateX(-50%) translateY(-50%);}
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
+    position: absolute;
+    transform: translateX(-50%) translateY(-50%);
+  }
+
+
+
