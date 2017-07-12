@@ -252,6 +252,9 @@ h2 {
   color: white; }
   .text-box p {
     font-size: 1.2em; }
+  .text-box img {
+    height: 3em;
+    width: 3em; }
 
 .to-top {
   height: 70px;
