@@ -328,12 +328,18 @@ body {
   width: 100vw;
   height: 100vh;
   min-height: 750px;
+  background-image: url("../assets/wbackground.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index:1;
   background-color: #57BA84;
+
     a{
     text-decoration: none;
     }
   
 }
+
 
 h2{
   font-family: 'Exo', sans-serif;
@@ -348,7 +354,7 @@ h2{
 .text-box{
   height: 40vh;
   width: 70vw;
-  margin-top: 120px;
+  margin-top: 60px;
   margin-right: auto;
   margin-left: auto;
   text-align: center;
@@ -362,10 +368,36 @@ h2{
   }
 }
 
+.icon-boxs{
+  position: relative;
+  width: 100%;
+  height: 200px;
+  margin-top: 50px;
+  /*border: solid black 1px;*/
+}
+
+.box-size{
+  position: relative;
+  display: inline-block;
+  float: left;
+  width: 25%;
+  height: 100%;
+  border-right: solid #C9C9C9 2px;
+  color: white;
+  text-align: center;
+    p{
+      padding: 10px;
+    }
+}
+
+.no-border{
+  border: none;
+}
+
 .to-top{
   height: 70px;
   width: 250px;
-  margin-top: 10px;
+  margin-top: 200px;
   border: 4px solid black;
   margin-right: auto;
   margin-left: auto;
